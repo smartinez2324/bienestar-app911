@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienestar App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#60a5fa" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+
+</head>
+<body>
+
+  <header>
+    <h1>🌿 Bienestar App</h1>
+    <p>Tu espacio de calma y reflexión</p>
+  </header>
+
+  <nav>
+    <button onclick="mostrarSeccion('meditaciones')">🧘 Meditaciones</button>
+    <button onclick="mostrarSeccion('diario')">📓 Diario</button>
+    <button onclick="mostrarSeccion('afirmaciones')">📌 Afirmaciones</button>
+  </nav>
+
+  <main>
+    <section id="meditaciones" class="active">
+      <h2>🧘 Meditaciones</h2>
+      <div id="lista-meditaciones"></div>
+      <audio id="player-meditacion" controls style="width: 100%; margin-top: 1rem;">
+        Tu navegador no soporta audio.
+      </audio>
+    </section>
+
+    <section id="diario">
+      <h2>📓 Diario emocional</h2>
+      <textarea id="entradaDiario" placeholder="¿Cómo te sientes hoy? Escribe con total libertad..."></textarea>
+      <p style="text-align:right;"><small>Se guarda automáticamente</small></p>
+    </section>
+
+    <section id="afirmaciones">
+      <h2>📌 Afirmación del día</h2>
+      <p id="afirmacion-dia" style="font-weight: bold; font-size: 1.2rem;"></p>
+
+      <h3>📝 Tus afirmaciones</h3>
+
+      <!-- Filtro por categorías -->
+      <div style="margin-bottom: 1rem;">
+        <label for="filtro-categoria">Filtrar por categoría:</label>
+        <select id="filtro-categoria">
+          <option value="todas">Todas</option>
+          <option value="autoestima">Autoestima</option>
+          <option value="motivacion">Motivación</option>
+          <option value="calma">Calma</option>
+        </select>
+      </div>
+
+      <ul id="lista-afirmaciones" style="list-style: none; padding-left: 0;"></ul>
+
+      <!-- Añadir nueva afirmación con categoría -->
+      <div style="margin-top: 1rem;">
+        <input type="text" id="input-nueva-afirmacion" placeholder="Añade una nueva afirmación" />
+        <label for="input-categoria-afirmacion">Categoría:</label>
+        <select id="input-categoria-afirmacion">
+          <option value="autoestima">Autoestima</option>
+          <option value="motivacion">Motivación</option>
+          <option value="calma">Calma</option>
+        </select>
+        <button id="btn-agregar-afirmacion">Agregar</button>
+      </div>
+    </section>
+  </main>
+
+  <button id="toggle-tema">🌙 Modo oscuro</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
